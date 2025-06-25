@@ -25,7 +25,7 @@ const createReservation = async (reservationData) => {
 };
 
 const getReservacionId = async (no_reservacion) => {
-    const snapshot = await collection.where('no_reservacion', '==', no_reservacion).limit(1).get();
+    const snapshot = await collection.where('no_reservacion', '==', Number(no_reservacion)).limit(1).get();
 
     if (snapshot.empty) return null;
 
@@ -43,7 +43,7 @@ const getAllReservaciones = async () => {
 };
 
 const updateReservacion = async (no_reservacion, nuevosDatos) => {
-    const snapshot = await collection.where('no_reservacion', '==', no_reservacion).limit(1).get();
+    const snapshot = await collection.where('no_reservacion', '==', Number(no_reservacion)).limit(1).get();
 
     if (snapshot.empty) {
         throw new Error('No se encontró la reservación con ese id');
@@ -54,7 +54,7 @@ const updateReservacion = async (no_reservacion, nuevosDatos) => {
 };
 
 const deleteReservacion = async (no_reservacion) => {
-    const snapshot = await collection.where('no_reservacion', '==', no_reservacion).limit(1).get();
+    const snapshot = await collection.where('no_reservacion', '==', Number(no_reservacion)).limit(1).get();
 
     if (snapshot.empty) {
         throw new Error('No se encontró la reservación con ese id');

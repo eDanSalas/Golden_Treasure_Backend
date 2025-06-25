@@ -11,14 +11,14 @@ const getAllServices = async (req, res) => {
 };
 
 const getService = async (req, res) => {
-    const { id } = req.params;
+    const { no_servicio } = req.params;
 
-    if (!id) {
+    if (!no_servicio) {
         return res.status(400).json({ message: 'Falta el id que es obligatorio' });
     }
 
     try {
-        const datos = await getServicioId(id);
+        const datos = await getServicioId(no_servicio);
         res.status(200).json(datos);
     } catch (err) {
         console.log("Error en obtener el servicio: ", err);
@@ -37,7 +37,7 @@ const addService = async (req, res) => {
         const newReservation = await createServicio({
             servicio, nombre, nombre_publico, correo, info, fecha, reservacion, aceptacion
         });
-        res.status(201).json({ message: 'Reservación agregada correctamente', id: newReservation.id, no_reservacion: newReservation.no_reservacion });
+        res.status(201).json({ message: 'Reservación agregada correctamente', id: newReservation.id, no_reservacion: newReservation.no_servicio });
     } catch (error) {
         if (error.message === 'DUPLICATE_RESERVATION') {
             return res.status(409).json({ message: 'Ya existe una reservación con ese número' });
@@ -50,9 +50,9 @@ const addService = async (req, res) => {
 
 const updateService = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { no_servicio } = req.params;
         const nuevosDatos = req.body;
-        await updateServicio(id, nuevosDatos);
+        await updateServicio(no_servicio, nuevosDatos);
         res.status(200).json({ message: 'Servicio actualizada' });
     } catch (err) {
         console.log("Error al editar registro. ", err);
@@ -62,8 +62,8 @@ const updateService = async (req, res) => {
 
 const deleteService = async (req, res) => {
     try {
-        const { id } = req.params;
-        await deleteServicio(id);
+        const { no_servicio } = req.params;
+        await deleteServicio(no_servicio);
         res.status(200).json({ message: 'Servicio eliminado' });
     } catch (err) {
         console.log("Error al eliminar: ", err);
