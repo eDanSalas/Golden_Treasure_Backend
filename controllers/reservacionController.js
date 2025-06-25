@@ -35,14 +35,14 @@ const obtenerTodas = async (req, res) => {
 };
 
 const obtenerReservacion = async (req, res) => {
-    const { id } = req.params;
+    const { no_reservacion } = req.params;
 
-    if (!id) {
+    if (!no_reservacion) {
         return res.status(400).json({ message: 'Faltan el id que es obligatorio' });
     }
 
     try {
-        const datos = await getReservacionId(id);
+        const datos = await getReservacionId(no_reservacion);
         res.status(200).json(datos);
     } catch (err) {
         console.log("Error en obtener reservaciones: ", err);
@@ -52,9 +52,9 @@ const obtenerReservacion = async (req, res) => {
 
 const actualizar = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { no_reservacion } = req.params;
         const nuevosDatos = req.body;
-        await updateReservacion(id, nuevosDatos);
+        await updateReservacion(no_reservacion, nuevosDatos);
         res.status(200).json({ message: 'Reservación actualizada' });
     } catch (err) {
         console.log("Error al editar registro. ", err);
@@ -64,8 +64,8 @@ const actualizar = async (req, res) => {
 
 const eliminar = async (req, res) => {
     try {
-        const { id } = req.params;
-        await deleteReservacion(id);
+        const { no_reservacion } = req.params;
+        await deleteReservacion(no_reservacion);
         res.status(200).json({ message: 'Reservación eliminada' });
     } catch (err) {
         console.log("Error al eliminar: ", err);

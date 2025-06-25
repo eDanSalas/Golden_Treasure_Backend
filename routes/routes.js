@@ -10,16 +10,16 @@ const { getAllServices, getService, addService, updateService, deleteService } =
 // FireBase API REST
 router.post('/reservaciones/crear', addReservation);
 router.get('/reservaciones/todas', obtenerTodas);
-router.get('/reservaciones/:id', obtenerReservacion);
-router.put('/reservaciones/editar/:id', actualizar);
-router.delete('/reservaciones/eliminar/:id', eliminar);
+router.get('/reservaciones/:no_reservacion', obtenerReservacion);
+router.put('/reservaciones/editar/:no_reservacion', actualizar);
+router.delete('/reservaciones/eliminar/:no_reservacion', eliminar);
 
 // FireBase API REST (Servicios)
 router.get('servicios/todos', getAllServices);
-router.get('servicios/:id', getService);
+router.get('servicios/:no_servicio', getService);
 router.post('servicios/crear', addService);
-router.put('/servicios/editar/:id', updateService);
-router.delete('/servicios/eliminar/:id', deleteService);
+router.put('/servicios/editar/:no_servicio', updateService);
+router.delete('/servicios/eliminar/:no_servicio', deleteService);
 
 // Clientes FireBase API 
 router.post('/client', addClient);
