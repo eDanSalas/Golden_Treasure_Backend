@@ -14,8 +14,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/api', routes);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './dist/golden-treasure/browser/index.html'));
+app.get('*', (req, res, next) => {
+    const accept = req.headers.accept || '';
+    if (accept.includes('text/html')) {
+        res.sendFile(path.join(__dirname, './dist/golden-treasure/browser/index.html'));
+    } else {
+        next();
+    }
 });
 
 const PORT = process.env.PORT;
