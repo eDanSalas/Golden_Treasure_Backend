@@ -14,21 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/api', routes);
 
-app.get('*', (req, res, next) => {
-    const accept = req.headers.accept || '';
-    if (accept.includes('text/html')) {
-        res.sendFile(path.join(__dirname, './dist/golden-treasure/browser/index.html'));
-    } else {
-        next();
-    }
-});
-
-const PORT = process.env.PORT || 8080;
-
-app.use((err, req, res, next) => {
-    console.error('Error no manejado:', err);
-    res.status(500).send('Error interno del servidor');
-});
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
