@@ -58,8 +58,39 @@ const createClientGoogle = async (clienteData) => {
     const newCliente = {
         id: nextId,
         nombre: clienteData.nombre,
-        correo: clienteData.correo,
-        intentos: 0
+        correo: clienteData.correo
+    };
+
+    const docRef = await clientesRef.add(newCliente);
+    return { yaExiste: false, cliente: { id: docRef.id, ...newCliente } };
+};
+
+const createClientPhone = async (clienteData) => {
+    const clientesRef = db.collection('users');
+
+    const telefonoQuery = await clientesRef.where('telefono', '==', clienteData.telefono).limit(1).get();
+
+    if (!telefonoQuery.empty) {
+        const existingDoc = telefonoQuery.docs[0];
+        return {
+            yaExiste: true,
+            cliente: { id: existingDoc.id, ...existingDoc.data() }
+        };
+    }
+
+    const snapshot = await clientesRef.orderBy('id', 'desc').limit(1).get();
+
+    let nextId = 1;
+    if (!snapshot.empty) {
+        const lastDoc = snapshot.docs[0];
+        const lastId = lastDoc.data().id;
+        nextId = lastId + 1;
+    }
+
+    const newCliente = {
+        id: nextId,
+        nombre: clienteData.nombre,
+        telefono: clienteData.telefono
     };
 
     const docRef = await clientesRef.add(newCliente);
@@ -137,6 +168,7 @@ const obtenerClienteId = async (id) => {
 module.exports = {
     createClient,
     createClientGoogle,
+    createClientPhone,
     loginWithCredentials,
     changePassword,
     obtenerClienteId

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { sendMail } = require('../controllers/mailController');
-const { addClient, loginClient, changePass, addClientGoogle } = require('../controllers/userController');
+const { addClient, loginClient, changePass, addClientGoogle, addClientPhone } = require('../controllers/userController');
 const { loginAdmin, getAdmins, changePassAdmin } = require('../controllers/adminController');
 const { obtenerCredencialesPaypal } = require('../controllers/paypalController');
 const { addReservation, obtenerTodas, obtenerReservacion, actualizar, eliminar } = require('../controllers/reservacionController');
@@ -26,6 +26,7 @@ router.post('/client', addClient);
 router.post('/client/login', loginClient);
 router.post('/client/changepass', changePass);
 router.post('/client/loginGoogle', addClientGoogle);
+router.post('/client/loginPhone', addClientPhone);
 
 // Nodemailer API
 router.post('/mail', sendMail);
