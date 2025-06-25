@@ -16,10 +16,10 @@ app.use('/api', routes);
 
 const PORT = process.env.PORT;
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/golden-treasure/browser', 'index.html'));
-});
-
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/golden-treasure/browser', 'index.html'));
 });
