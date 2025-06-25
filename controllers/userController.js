@@ -100,7 +100,7 @@ const loginClient = async (req, res) => {
         });
     } catch (error) {
         if (error.message === 'BLOCKED_ACCOUNT') {
-            return res.status(501).json({ message: 'Cuenta bloqueada' });
+            return res.status(423).json({ message: 'Cuenta bloqueada' });
         }
         console.error('Error en login:', error);
         res.status(500).json({ message: 'Error en el login' });
