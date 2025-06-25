@@ -17,7 +17,7 @@ router.delete('/reservaciones/eliminar/:no_reservacion', eliminar);
 // FireBase API REST (Servicios)
 router.get('/servicios/todos', getAllServices);
 router.get('/servicios/:no_servicio', getService);
-router.post('servicios/crear', addService);
+router.post('/servicios/crear', addService);
 router.put('/servicios/editar/:no_servicio', updateService);
 router.delete('/servicios/eliminar/:no_servicio', deleteService);
 
