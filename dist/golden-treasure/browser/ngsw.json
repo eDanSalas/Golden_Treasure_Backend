@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1750888691215,
+  "timestamp": 1750891002311,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "./chunk-6CXOQ2NJ.js",
         "./favicon.ico",
         "./index.html",
-        "./main-NVFK43WU.js",
+        "./main-T6BW5UGY.js",
         "./manifest.webmanifest",
         "./polyfills-FFHMD2TL.js",
         "./scripts-6OBTFB5I.js",
@@ -222,9 +222,9 @@
     "./images/serv.jpg": "43defd5464bb134110e1af51d2680319415c3294",
     "./images/servicios.jpg": "6f4f931b8052891914e7f8c7145a9959cf7d006a",
     "./images/transporte.jpg": "4b0a48016a8a54ccd572ab31c9d73b24ea10dcaa",
-    "./index.html": "b7c501d5a0dbcfd1474e64a30e5289d19f712a94",
+    "./index.html": "06d40e8fd53a8b8c54ef20cfb5569bca0743e9ad",
     "./logo.png": "b5098b122e7a1ec2d919fa72a88cba05ac94cc5f",
-    "./main-NVFK43WU.js": "abacde511ad276311f5db5133a9ea6c7cc93282c",
+    "./main-T6BW5UGY.js": "1d819a888d1cfbd92a1952d80766bab957d8fb9c",
     "./manifest.webmanifest": "1c27f902bcbb8df99b76669646c29cc568b96ac1",
     "./media/layers-2x-TBM42ERR.png": "152a162333e46d24f9d89f566312fc0c64011dee",
     "./media/layers-55W3Q4RM.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
