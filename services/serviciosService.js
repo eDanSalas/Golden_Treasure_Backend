@@ -11,8 +11,8 @@ const getAllServicios = async () => {
     return datos;
 };
 
-const getServicioId = async (id) => {
-    const snapshot = await collection.where('id', '==', id).limit(1).get();
+const getServicioId = async (no_servicio) => {
+    const snapshot = await collection.where('no_servicio', '==', Number(no_servicio)).limit(1).get();
 
     if (snapshot.empty) return null;
 
@@ -42,8 +42,8 @@ const createServicio = async (reservationData) => {
     return { id: docRef.id, no_servicio: newNoServicio };
 };
 
-const updateServicio = async (id, nuevosDatos) => {
-    const snapshot = await collection.where('no_servicio', '==', id).limit(1).get();
+const updateServicio = async (no_servicio, nuevosDatos) => {
+    const snapshot = await collection.where('no_servicio', '==', Number(no_servicio)).limit(1).get();
 
     if (snapshot.empty) {
         throw new Error('No se encontró la reservación con ese id');
@@ -53,8 +53,8 @@ const updateServicio = async (id, nuevosDatos) => {
     await docRef.update(nuevosDatos);
 };
 
-const deleteServicio = async (id) => {
-    const snapshot = await collection.where('no_servicio', '==', id).limit(1).get();
+const deleteServicio = async (no_reservacion) => {
+    const snapshot = await collection.where('no_servicio', '==', Number(no_reservacion)).limit(1).get();
 
     if (snapshot.empty) {
         throw new Error('No se encontró la reservación con ese id');
