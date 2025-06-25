@@ -13,6 +13,13 @@ router.get('/reservaciones/:id', obtenerReservacion);
 router.put('/reservaciones/editar/:id', actualizar);
 router.delete('/reservaciones/eliminar/:id', eliminar);
 
+// FireBase API REST (Servicios)
+router.get('servicios/todos');
+router.get('servicios/:id');
+router.post('servicios/crear');
+router.put('/servicios/editar/:id');
+router.delete('/servicios/eliminar/:id');
+
 // Clientes FireBase API 
 router.post('/client', addClient);
 router.post('/client/login', loginClient);
