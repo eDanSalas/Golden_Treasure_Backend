@@ -23,7 +23,12 @@ app.get('*', (req, res, next) => {
     }
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
+
+app.use((err, req, res, next) => {
+    console.error('Error no manejado:', err);
+    res.status(500).send('Error interno del servidor');
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
