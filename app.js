@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, './dist/golden-treasure/browser')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/tu-app-angular/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/golden-treasure/browser/index.html'));
 });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
