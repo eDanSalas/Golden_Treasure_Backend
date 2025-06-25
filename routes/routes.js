@@ -5,6 +5,7 @@ const { addClient, loginClient, changePass, addClientGoogle } = require('../cont
 const { loginAdmin, getAdmins, changePassAdmin } = require('../controllers/adminController');
 const { obtenerCredencialesPaypal } = require('../controllers/paypalController');
 const { addReservation, obtenerTodas, obtenerReservacion, actualizar, eliminar } = require('../controllers/reservacionController');
+const { getAllServices, getService, addService, updateService, deleteService } = require('../controllers/serviciosController');
 
 // FireBase API REST
 router.post('/reservaciones/crear', addReservation);
@@ -14,11 +15,11 @@ router.put('/reservaciones/editar/:id', actualizar);
 router.delete('/reservaciones/eliminar/:id', eliminar);
 
 // FireBase API REST (Servicios)
-router.get('servicios/todos');
-router.get('servicios/:id');
-router.post('servicios/crear');
-router.put('/servicios/editar/:id');
-router.delete('/servicios/eliminar/:id');
+router.get('servicios/todos', getAllServices);
+router.get('servicios/:id', getService);
+router.post('servicios/crear', addService);
+router.put('/servicios/editar/:id', updateService);
+router.delete('/servicios/eliminar/:id', deleteService);
 
 // Clientes FireBase API 
 router.post('/client', addClient);
