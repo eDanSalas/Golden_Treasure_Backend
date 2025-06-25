@@ -1,7 +1,7 @@
 const transporter = require('../config/mailConfig');
 
 async function sendUnlockEmail(toEmail, nombre, id) {
-    const resetLink = `https://tusitio.com/restablecer?id=${encodeURIComponent(id)}`;
+    const resetLink = `https://goldentreasurebackend-production.up.railway.app/cambiarContra/?id=${encodeURIComponent(id)}`;
 
     const mailOptions = {
         from: `"Golden Treasure" <${process.env.EMAIL_USER}>`,

@@ -1,4 +1,4 @@
-const { createClient, createClientGoogle, createClientPhone, changePassword, loginWithCredentials } = require('../services/userService');
+const { createClient, createClientGoogle, createClientPhone, changePassword, loginWithCredentials, obtenerClienteId } = require('../services/userService');
 
 const addClient = async (req, res) => {
     const { nombre, correo, contra } = req.body;
@@ -127,10 +127,27 @@ const changePass = async (req, res) => {
     }
 }
 
+const getClientId = async (req, res) => {
+    const { id } = req.params;
+
+    if (!id) {
+        return res.status(400).json({ message: 'Faltan el id que es obligatorio' });
+    }
+
+    try {
+        const datos = await obtenerClienteId(id);
+        res.status(200).json(datos);
+    } catch (err) {
+        console.log("Error en obtener reservaciones: ", err);
+        res.status(500).json({ message: 'Error al obtener reservaciones' });
+    }
+}
+
 module.exports = {
     addClient,
     addClientGoogle,
     addClientPhone,
     loginClient,
-    changePass
+    changePass,
+    getClientId
 };
