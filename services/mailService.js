@@ -12,7 +12,13 @@ async function sendUnlockEmail(toEmail, nombre, id) {
                 Saludos,\nGolden Treasure`
     };
 
-    return transporter.sendMail(mailOptions);
+    return transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error en nodemailer:', error);
+        } else {
+            console.log('Correo enviado:', info.response);
+        }
+    });
 }
 
 module.exports = {
