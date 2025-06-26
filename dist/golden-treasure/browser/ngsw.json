@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1750903502414,
+  "timestamp": 1750908975584,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/chunk-6CXOQ2NJ.js",
         "/favicon.ico",
         "/index.html",
-        "/main-RRWDD2HR.js",
+        "/main-YLY4DKZ4.js",
         "/manifest.webmanifest",
         "/polyfills-FFHMD2TL.js",
         "/scripts-6OBTFB5I.js",
@@ -222,9 +222,9 @@
     "/images/serv.jpg": "43defd5464bb134110e1af51d2680319415c3294",
     "/images/servicios.jpg": "6f4f931b8052891914e7f8c7145a9959cf7d006a",
     "/images/transporte.jpg": "4b0a48016a8a54ccd572ab31c9d73b24ea10dcaa",
-    "/index.html": "2202d13cbae3f1752c92ef7bd15ab3234fa30c9a",
+    "/index.html": "daf6c0754970c045c995a657703246046417375f",
     "/logo.png": "b5098b122e7a1ec2d919fa72a88cba05ac94cc5f",
-    "/main-RRWDD2HR.js": "acf352029d3099828dde4459c81b8ec85501a6e2",
+    "/main-YLY4DKZ4.js": "38b8ffc162b396421d2336b548e9eafa3e387841",
     "/manifest.webmanifest": "1c27f902bcbb8df99b76669646c29cc568b96ac1",
     "/media/layers-2x-TBM42ERR.png": "152a162333e46d24f9d89f566312fc0c64011dee",
     "/media/layers-55W3Q4RM.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
