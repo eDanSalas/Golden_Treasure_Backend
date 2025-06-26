@@ -38,7 +38,7 @@ const createServicio = async (reservationData) => {
         no_servicio: newNoServicio
     };
 
-    const docRef = await db.collection('formulario_habitacion').add(finalReservationData);
+    const docRef = await db.collection('formulario_servicio').add(finalReservationData);
     return { id: docRef.id, no_servicio: newNoServicio };
 };
 
