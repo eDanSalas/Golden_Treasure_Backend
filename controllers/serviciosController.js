@@ -37,7 +37,7 @@ const addService = async (req, res) => {
         const newReservation = await createServicio({
             servicio, nombre, nombre_publico, correo, info, fecha, reservacion, aceptacion
         });
-        res.status(201).json({ message: 'Reservación agregada correctamente', id: newReservation.id, no_reservacion: newReservation.no_servicio });
+        res.status(201).json({ message: 'Reservación agregada correctamente', id: newReservation.id, no_servicio: newReservation.no_servicio });
     } catch (error) {
         if (error.message === 'DUPLICATE_RESERVATION') {
             return res.status(409).json({ message: 'Ya existe una reservación con ese número' });
