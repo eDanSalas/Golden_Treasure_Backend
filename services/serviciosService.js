@@ -29,7 +29,7 @@ const createServicio = async (reservationData) => {
     let newNoServicio = 1;
     if (!snapshot.empty) {
         const lastDoc = snapshot.docs[0];
-        const lastNo = lastDoc.data().no_Servicio;
+        const lastNo = lastDoc.data().no_servicio;
         newNoServicio = lastNo + 1;
     }
 
