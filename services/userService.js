@@ -155,10 +155,10 @@ const changePassword = async (id, nombre, contra, nuevaContra) => {
 const obtenerClienteId = async (id) => {
     const snapshot = await db
         .collection('users')
-        .where('id', '==', id)
+        .where('id', '==', Number(id))
         .limit(1)
         .get();
-
+    
     if (snapshot.empty) return null;
 
     const doc = snapshot.docs[0];

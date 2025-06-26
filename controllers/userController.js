@@ -131,17 +131,22 @@ const getClientId = async (req, res) => {
     const { id } = req.params;
 
     if (!id) {
-        return res.status(400).json({ message: 'Faltan el id que es obligatorio' });
+        return res.status(400).json({ message: 'Falta el id que es obligatorio' });
     }
 
     try {
         const datos = await obtenerClienteId(id);
+        
+        if (!datos) {
+            return res.status(404).json({ message: 'Cliente no encontrado' });
+        }
+
         res.status(200).json(datos);
     } catch (err) {
-        console.log("Error en obtener reservaciones: ", err);
-        res.status(500).json({ message: 'Error al obtener reservaciones' });
+        console.log("Error en obtener cliente: ", err);
+        res.status(500).json({ message: 'Error al obtener cliente' });
     }
-}
+};
 
 module.exports = {
     addClient,
